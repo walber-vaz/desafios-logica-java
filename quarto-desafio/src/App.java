@@ -43,6 +43,7 @@
 
 public class App {
     public static void main(String[] args) throws Exception {
+        // Frases para teste
         String[] frases = {
                 "I ENIL SIHTHSIREBBIG S",
                 "LEVELKAYAK",
@@ -51,21 +52,39 @@ public class App {
                 "VOD OWT SNEH HCNERF EGDIRTRAP A DNA SE"
         };
 
+        // Loop para decifrar as frases e imprimir na tela
         for (String frase : frases) {
             String fraseDecifrada = decifrar(frase);
             System.out.println(fraseDecifrada);
         }
     }
 
+    /**
+     * Deciphers a given phrase by reversing the characters.
+     *
+     * @param frase the phrase to be deciphered
+     * @return the deciphered phrase
+     */
     public static String decifrar(String frase) {
+        // Cria um StringBuilder para armazenar a frase decifrada
+        // O que é um StringBuilder?
+        // https://www.devmedia.com.br/string-e-stringbuilder-em-java/29865
+        // -- Resumindo, é uma classe que permite manipular strings de forma mais
+        // eficiente
         StringBuilder fraseDecifrada = new StringBuilder();
+        // Calcula a metade da frase para saber onde começar a decifrar
         int metade = frase.length() / 2;
+        // Loop para decifrar a frase e armazenar no StringBuilder
         for (int i = metade - 1; i >= 0; i--) {
             fraseDecifrada.append(frase.charAt(i));
         }
+
+        // Loop para decifrar a frase e armazenar no StringBuilder
         for (int i = frase.length() - 1; i >= metade; i--) {
             fraseDecifrada.append(frase.charAt(i));
         }
+
+        // Retorna a frase decifrada como uma string
         return fraseDecifrada.toString();
     }
 }
